@@ -14,4 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction private func didTapButton(_ sender: Any) {
+        let coord = StarwarsCoordinator()
+        coord.start(from: self, animated: true)
+    }
 }
