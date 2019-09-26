@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol StarwarsPresentationLogic {
-    func displayFilmList(response: Starwars.Film.Response)
-    func presentError(error: NetworkError)
-}
-
 final class StarwarsPresenter {
     private weak var viewController: StarwarsDisplayLogic?
 
     func setViewController(_ viewController: StarwarsDisplayLogic) {
         self.viewController = viewController
     }
+}
+
+protocol StarwarsPresentationLogic {
+    func displayFilmList(response: Starwars.Film.Response)
+    func presentError(error: NetworkError)
 }
 
 extension StarwarsPresenter: StarwarsPresentationLogic {
