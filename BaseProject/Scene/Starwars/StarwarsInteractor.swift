@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol StarwarsBusinessLogic {
-    func displayFilmList()
-}
-
 protocol StarwarsDataStore {
     // Core Data, etc
 }
@@ -19,20 +15,24 @@ protocol StarwarsDataStore {
 final class StarwarsInteractor: StarwarsDataStore {
     private let presenter: StarwarsPresentationLogic
 
-    init(presenter: StarwarsPresenter) {
+    init(presenter: StarwarsPresentationLogic) {
         self.presenter = presenter
     }
+}
+
+protocol StarwarsBusinessLogic {
+    func displayFilmList()
 }
 
 extension StarwarsInteractor: StarwarsBusinessLogic {
     func displayFilmList() {
         let worker = StarwarsWorker()
         worker.requestFilmList { [weak self] result in
-                switch result {
-                case .success(let value):
-                    self?.presenter.displayFilmList(response: value)
-                case .failure(let error):
-                    self?.presenter.presentError(error: error)
+            switch result {
+            case .success(let value):
+                self?.presenter.displayFilmList(response: value)
+            case .failure(let error):
+                self?.presenter.presentError(error: error)
             }
         }
     }

@@ -8,28 +8,11 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case url
-    case response(error: Error?)
-    case data
-    case jsonDecoding(error: Error?)
-    
-    var localizedDescription: String {
-        let customDescription: String?
-        switch self {
-        case .response(let error):
-            customDescription = error?.localizedDescription
-        case .jsonDecoding(let error):
-            customDescription = error?.localizedDescription
-        default:
-            customDescription = nil
-        }
-        return customDescription ?? ""
-    }
-}
+typealias API = NetworkManager
 
-class NetworkManager {
-    
+final class NetworkManager {
+    static let shared = NetworkManager()
+
     // MARK: Interface
     @discardableResult
     func request(
@@ -125,3 +108,25 @@ extension NetworkManager {
         return request(with: url, type: type, handler: handler)
     }
 }
+
+// MARK: Error
+enum NetworkError: Error {
+    case url
+    case response(error: Error?)
+    case data
+    case jsonDecoding(error: Error?)
+    
+    var localizedDescription: String {
+        let customDescription: String?
+        switch self {
+        case .response(let error):
+            customDescription = error?.localizedDescription
+        case .jsonDecoding(let error):
+            customDescription = error?.localizedDescription
+        default:
+            customDescription = nil
+        }
+        return customDescription ?? ""
+    }
+}
+

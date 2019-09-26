@@ -45,7 +45,7 @@ protocol StarwarsDisplayLogic: class {
 extension StarwarsViewController: StarwarsDisplayLogic {
 
     func displayFilmList(viewModels: [Starwars.Film.ViewModel]) {
-        self.films = viewModels
+        films = viewModels
         DispatchQueue.main.async {
             self.customView.tableView.reloadData()
         }
