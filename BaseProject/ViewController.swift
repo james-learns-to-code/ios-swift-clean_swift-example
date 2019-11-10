@@ -8,13 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
+final class ViewController: UIViewController {
     @IBAction private func didTapButton(_ sender: Any) {
         let coord = StarwarsCoordinator()
         coord.start(from: self, animated: true)

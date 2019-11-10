@@ -71,7 +71,7 @@ extension StarwarsViewController: UITableViewDelegate {
 extension StarwarsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return films?.count ?? 0
+        films?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

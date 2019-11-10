@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Good Effect. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 enum Starwars {
     static let path = "https://swapi.co/api/"
@@ -55,6 +55,6 @@ struct StarwarsViewModel {
     }
     
     private static func getTitle(from film: StarwarsFilmModel?) -> String {
-        return "\(film?.episode_id ?? 0) \(film?.title ?? "") - \(film?.director ?? "")"
+        "\(film?.episode_id ?? 0) \(film?.title ?? "") - \(film?.director ?? "")"
     }
 }
