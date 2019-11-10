@@ -6,7 +6,7 @@
 //  Copyright (c) 2019 Good Effect. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class StarwarsPresenter {
     private weak var viewController: StarwarsDisplayLogic?
